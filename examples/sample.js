@@ -9,7 +9,7 @@ function close(addr) {
 
 function data(buffer) {
     s=buffer.toString();
-    if (/\$ /.test(s)) {
+    if (/\$ |\# /.test(s)) {
        if (cmd=cmds.shift())
           ssh.write(cmd+"\r\n");
        else ssh.close();
